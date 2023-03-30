@@ -38,54 +38,16 @@
 // }
 // myName('tim')
 
-// -------------------------
+//--------
 
-// variable Hoisting  變數提升
-// 兩階段執行
+// 匿名函示anonymous function 
+// const myName = function(name){
+//   console.log(name);
+// }
 
-// var
-// creation 建立期  先用宣告的變數在記憶體空間裡面要位子，因為位子需要有值但第一階段不會給給值，用var宣告會先給予設的undefined去留著記憶體空間
-// execution 執行期  執行函數 跟 給值
+// ()=>{} 箭頭函示Arrow function
+// const myName = (name) =>{
+//   console.log(name);
+// }
 
-// console.log(a); // undefined
-// var a = 1;
-// console.log(a); // 1
-
-// let , const
-// creation 建立期  先用宣告的變數在記憶體空間裡面要位子，但let會在變數上面蓋一個蓋子TDZ ， 當要是未宣告就使用會得到referenceError before initialization 宣告的變數沒有初始化
-// execution 執行期  執行函數 跟 給值
-
-// console.log(a);
-// const a = 1; //referenceError before initialization...
-
-// function
-// creation 建立期 就會一次把第一階段跟 execution 執行期的付值一起做完，所以不管function在哪邊呼叫都不會錯誤
-
-// a() //function hoisting
-// function a(){
-//  console.log("function hoisting"); 
-// };
-// a() //function hoisting
-
-
-// --------
-
-// scope 作用域
-// var  = function scope  無法跳脫function的範圍
-// let , const = block scope 只要倍block包住就無法取直
-
-// function tim(){
-//   var a = 1 
-//   const b = 2
-// };
-
-// tim()
-
-// console.log(a);  // is not defined
-// console.log(b);  // is not defined
-
-for(var i = 1  ; i < 10  ; a++){
-  console.log(i);
-};
-
-console.log(i);
+// myName('tim')  // tim 
