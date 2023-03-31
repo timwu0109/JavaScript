@@ -66,3 +66,21 @@
 
 
 
+//---------------for loop is different form forEach 
+
+// const listLength = ["a", "b", "c", "d", "e", "f"];
+
+// 用跑回圈的方式跑陣列長度數量，東西全部印出來
+// for (let i = 0; i < listLength.length; i++) {
+//   console.log(listLength[i]); 
+// }
+
+
+// 直接抓陣列裡面的值一個一個丟到item裡面
+// listLength.forEach((item) => {
+//   console.log(item);
+// })
+
+
+
+
