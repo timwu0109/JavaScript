@@ -83,3 +83,28 @@
 // const result2 = addMoney(100 , 500 , 50)
 // console.log('result2' , result2);
 // //result2 普通會員:消費金額=550
+
+
+// 用if else實作一次會員系統 ，發現在if裡面回傳之後就回直接放到function 外面所以就不需要在function 裡面在百一次return
+
+// function customerClass(price1 , price2 , discount){
+//   let total = price1 + price2 - discount
+//   let graded = '一般會員'
+
+//   if (total > 50000){
+//     return graded =  '黃金會員'+total ; 
+//   }else if (total > 10000 ){
+//     return graded = '銀牌會員'+total;
+//   }else{
+//     return graded + total
+//   }
+//   return graded  // 實際這邊沒有回傳因為在上面就已經回傳出去了
+// }
+// let result = customerClass(10000 ,5000 , 2000)
+// console.log(result);
+
+
+// let result1 = customerClass(50000 ,5000 , 2000)
+// console.log(result1);
+
+
