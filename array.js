@@ -1,7 +1,5 @@
 // array 陣列
-
 const list = [1,2,3,4,5,6,7,8]
-console.log(list);
 
 list.push(9)
 console.log('push從最後面增加一顆',list);
@@ -20,11 +18,23 @@ console.log('陣列index 數字3為陣列中第4值',list[3]);
 
 console.log('取陣列最後一個值 ', list[list.length-1]);
 
-// 特別注意回傳值
 
+const sp = list.splice(0 , 1 ,'tim')  //第一個值是起始值從自己開始砍，沒給第二值就會一路砍到最後 , 第二個刪除到哪個值，選到的值會留下來之得全部刪掉 , 在選到得第二值前面，添加新的值進去
+
+console.log(list); //印出我正常要的結果 > [1, 5, 6, 7, 8]
+console.log(sp); //用 splice 記得如果去log > list.splice(1 , 3) 會印出splice 回傳被刪除的數值陣列 > [2, 3, 4]
+
+
+// 特別注意回傳值
 const listPushReturn = [1,2,3,4,5]
 const pushResult = listPushReturn.push('x' , 'z')
 
 console.log(listPushReturn); // [1, 2, 3, 4, 5, 'x', 'z']
-console.log(pushResult);  // push function 回傳值是length 也就是array的長度
+console.log(pushResult);  // push function 回傳值是length，所以如果是log pushResult，也就會得到array的長度
 
+
+const listSlice = ['a' , 'b' , 'c' , 'd' , 'e']
+const a = listSlice.slice(0 ,  3) // 第一值包含自己本身 , 第二值不包含自己本身 回傳所選值的新陣列
+
+console.log(a);
+console.log(listSlice);
