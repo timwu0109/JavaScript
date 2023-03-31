@@ -84,3 +84,22 @@
 
 
 
+
+// ------------ how to use find function in array 
+
+// const listFind = [ 1,2,3,4,5,6,7,8,9,10 ] 
+
+// const result = listFind.find((index) => {
+//   return index > 3 ;
+// })
+
+// console.log(result); //  印出3  ，find 回傳找到符合的第一個值
+
+
+// 找到 > 6的第一個偶數
+// const result = listFind.find((index) => {
+//   return index % 2 === 0 && index > 6  ;
+// })
+
+// console.log(result); //  印出8 
+
