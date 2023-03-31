@@ -103,3 +103,35 @@
 
 // console.log(result); //  印出8 
 
+
+
+
+
+
+
+
+// --------- Array map function
+const listMap = [ 1,2,3,4,5 ] 
+// 把listMap 變成[2,4,6,8,10]
+
+
+// // for 的寫法
+// let result = []
+// for(let i = 0 ; i < listMap.length  ; i++){
+//   result.push( listMap[i] * 2)
+// }
+// console.log(result); 
+
+
+// forEach寫法
+// let result = []
+// listMap.forEach((item) => {
+//   result.push(item *2)
+// })
+// console.log(result);
+
+
+//map 寫法 回傳值是計算結果收集起來在變成新的陣列
+// const result = listMap.map((item) => item * 2 )
+// console.log(result);
+
