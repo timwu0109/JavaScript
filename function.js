@@ -29,6 +29,8 @@
 // myName('tim' , 30) // tim ,30
 // myName('tim') // tim , 18 (沒給預設值會是undefind)
 
+
+
 // 也可以用 var,let,const 去宣告把function帶進去
 // 在此函式不一定要具名，所以稱為匿名函數，透過宣告得變數就可以call裡面的函示
 // anonymous function 匿名函數

@@ -52,7 +52,6 @@
 // console.log('result' , result);
 
 
-
 // const result1  = addMoney(11000 , 1000 , 1000)
 // console.log('result1' , result1);
 
@@ -63,6 +62,7 @@
 // 在這裡可以加入if的判斷式去判斷客人的會員等級
 // 在判斷句裡面要加return 如果沒加，有可能會遇到符合條件不是按順序去做填寫，所以當第一個符合之後，就會往下繼續走去看第二個判斷，如果符合就會蓋掉上一個結果，總結 return 就是當累是中止繼續往下的意思
 
+//call function 不會互相干擾輸出結果
 
 // function addMoney(price1 , price2 , discount){
 //   let total = price1 + price2 - discount;
@@ -95,7 +95,10 @@
 
 
 
+
+
 // -------------
+
 // 用if else實作一次會員系統 ，發現在if裡面回傳之後就回直接放到function 外面所以就不需要在function 裡面在百一次return
 
 // function customerClass(price1 , price2 , discount){
@@ -116,6 +119,9 @@
 
 // let result1 = customerClass(50000 ,5000 , 2000)
 // console.log(result1);
+
+
+
 
 
 //---------
