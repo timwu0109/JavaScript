@@ -10,7 +10,10 @@
 // var a = 1;
 // console.log(a); // 1
 
-//   ----------
+
+
+
+//----------
 
 // let , const
 // creation 建立期  先用宣告的變數在記憶體空間裡面要位子，但let會在變數上面蓋一個蓋子TDZ ， 當要是未宣告就使用會得到referenceError before initialization 宣告的變數沒有初始化
@@ -18,6 +21,11 @@
 
 // console.log(a);
 // const a = 1; //referenceError before initialization...
+
+
+
+
+
 
 //-------
 
@@ -31,7 +39,9 @@
 // a() //function hoisting
 
 
-//  --------
+
+
+//--------
 
 // scope 作用域
 // var  = function scope  無法跳脫function的範圍
@@ -47,6 +57,10 @@
 // console.log(a);  // is not defined
 // console.log(b);  // is not defined
 
+
+
+
+
 //----------
 
 // 用var宣告 或 直接給值都會造成全域變數的污染 ，如果window裡面沒有變數就會塞給他，如果有變數就會把原本的值給覆蓋掉，如下:
@@ -55,6 +69,10 @@
 
 // alert = 1 
 // alert()   //TypeError: alert is not a function
+
+
+
+
 
 //-------
 
@@ -71,7 +89,12 @@
 //  console.log(i); // ReferenceError: i is not defined
 
 
-//  ----------
+
+
+
+
+
+//----------
 
 // let x = 5
 
@@ -82,4 +105,4 @@
 // }
 
 // a(123)
-// console.log(x); // 因為在對內部的parameter 做調整，所以不會造成全域變數污染 ReferenceError: x is not defined , 就算在外面宣告 x 也不會對function裡面造成影響
+// console.log(x); // 5 因為在對內部的parameter 做調整，所以不會造成全域變數污染  , 就算在外面宣告 x 也不會對function裡面造成影響

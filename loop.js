@@ -13,7 +13,6 @@
 // };
 
 
-
 // while
 // let a = 1(起始值) 
 // while (滿足條件){
@@ -51,7 +50,7 @@
 //   a-=2;
 // }
 
-
+// whileloop 未完成
 // let a = 1
 // let b = 1
 
@@ -77,8 +76,6 @@
 //   console.log(b.repeat(a));
 // }
 
-
-
 // 進階星星
 // for(let a = 10 , b = 1 ; a > 0 , b <= 21 ; a-- ,b+=2 ){
 //   console.log('.'.repeat(a) + '*'.repeat(b));
@@ -89,10 +86,9 @@
 // }
 
 
-
 let age = 66
  
-switch(true){
+switch(age){
   case age > 18 :
     console.log('成年');
     break;
@@ -105,3 +101,8 @@ switch(true){
     console.log('幼童');
     break;
 }
+
+
+
+
+

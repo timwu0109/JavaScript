@@ -12,7 +12,6 @@ if (Number.isNaN(age)){
   }
 }
 
-
 // if (age >= 18) {
 //   console.log("已成年");
 // }else if (age < 18 && age > 10 ){
