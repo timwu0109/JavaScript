@@ -166,3 +166,33 @@
 
 
 
+
+
+// --------- about the reduce function for array
+
+// const result = listReduce.reduce(
+// 1.(累加值(每輪加總結束的回傳值) , 目前值(array裡面的值) )=>{return 累加 + 目前}, 
+// 2. 初始值(累加值預設為0 ,這邊可以調整初始值) )
+//  以上是兩個reduce parameter , 第一個是function , 第二個是 初始值 
+//  當然如果沒有給初始值，就會直接抓陣列的第一個值來當累加值，也就是1
+// const result = listReduce.reduce((acc , cv )=> acc + cv , 10)
+
+// const  listReduce = [ 1,2,3,4,5 ]
+// const result = listReduce.reduce((acc , cv )=> { return acc + cv} , 10)
+
+// console.log(result); // 印出25
+
+
+// 用reduce 比較笨的方法找陣列最大值
+const listReduce  =  [ 1 ,10 ,7 ,9 ,18 , 200  ,1550]
+
+const result = listReduce.reduce((acc , cv ) => {
+  if (acc > cv ){
+    return acc
+  }else{
+    return cv
+  }
+})
+
+console.log(result); //印出 1550
+
