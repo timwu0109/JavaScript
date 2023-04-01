@@ -165,9 +165,6 @@
 // console.log(result); // 印出 ['bbbb', 'cccc ', 'ddddddd']
 
 
-
-
-
 // --------- about the reduce function for array
 
 // const result = listReduce.reduce(
@@ -195,4 +192,5 @@ const result = listReduce.reduce((acc , cv ) => {
 })
 
 console.log(result); //印出 1550
+
 
