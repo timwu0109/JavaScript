@@ -108,10 +108,8 @@
 
 
 
-
-
 // --------- Array map function
-const listMap = [ 1,2,3,4,5 ] 
+// const listMap = [ 1,2,3,4,5 ] 
 // 把listMap 變成[2,4,6,8,10]
 
 
@@ -134,4 +132,37 @@ const listMap = [ 1,2,3,4,5 ]
 //map 寫法 回傳值是計算結果收集起來在變成新的陣列
 // const result = listMap.map((item) => item * 2 )
 // console.log(result);
+
+
+
+// 印出1.3.5.7.9 ，當如果沒有回傳值得時候 map特性會回傳一個新的陣列等於原始陣列長度 所以會印[undefined *5]
+// const result = listMap.map((item)=> item * 2 - 1)
+
+// console.log(result); // 印出[1, 3, 5, 7, 9]
+
+
+
+// 這邊問法很特殊，解釋成為item餘數是否於數為0，是的話會回傳 true 不是就會傳false
+// const result = listMap.map((item)=> item % 2 === 0 )
+
+// console.log(result); // 印出[false, true, false, true, false]
+
+
+// map 跟filter 最不同的地方就是 map 轉的length 長度多少，就會回傳多少個值 ，filter 只會會傳符合條件得可參考以下 ，級以上對照
+
+
+// ---------- about the filter function
+// const listFilter = [ 1,2,3,4,5,6,7,8 ]
+// const result = listFilter.filter((item)=> item > 6 ) //只要判斷回傳的事true 就回傳結果
+
+// console.log(result);  // 印出[7, 8]
+
+
+// // 選出字數 > 3 的選項
+// const listFilter  = [ 'a' , 'aa' , 'bbbb' , 'cccc ' , 'ddddddd' , 'g'] 
+// const result = listFilter.filter((item)=> item.length > 3)
+
+// console.log(result); // 印出 ['bbbb', 'cccc ', 'ddddddd']
+
+
 
