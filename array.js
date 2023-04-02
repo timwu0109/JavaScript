@@ -184,15 +184,29 @@
 
 
 // 用reduce 比較笨的方法找陣列最大值
-const listReduce  =  [ 1 ,10 ,7 ,9 ,18 , 200  ,1550]
+// const listReduce  =  [ 1 ,10 ,7 ,9 ,18 , 200  ,1550]
 
-const result = listReduce.reduce((acc , cv ) => {
-  if (acc > cv ){
-    return acc
-  }else{
-    return cv
-  }
-})
+// const result = listReduce.reduce((acc , cv ) => {
+//   if (acc > cv ){
+//     return acc
+//   }else{
+//     return cv
+//   }
+// })
 
-console.log(result); //印出 1550
+// console.log(result); //印出 1550
+
+
+
+// -------------- Math.max() we can find max number in array
+// Math.max() 裡面的餐如果是一包，要用...把他展開相對她的相反Math.min()就是找最小值
+
+const listMathMax  =  [ 1 ,10 ,7 ,9 ,18 , 200  ,1550]
+console.log(Math.max(...listMathMax)); //印出1550  
+
+const listMathMin  =  [ 1 ,10 ,7 ,9 ,18 , 200  ,1550]
+console.log(Math.min(...listMathMax)); //印出1
+
+
+// 以上所講的只要能在fn 裡面用 fn 而且能回傳 fn ，這種情況稱為高階函數 higher-order function
 
