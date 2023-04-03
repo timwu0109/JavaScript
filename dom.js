@@ -25,6 +25,9 @@
 
 
 // 抓到DOM元素後如何改變HTML的文組書出
-const changeDoms1 = document.getElementById('name')
+const changeDoms = document.getElementById('name')
+console.log(changeDoms);
 
-changeDoms1.textContent = "我抓到DOM Value 改變你了"
+// changeDoms.textContent = "我抓到DOM Value 改變你了"
+changeDoms.innerHTML = '<h1>我用innerHTML變大了</h1>'
+changeDoms.style.color = 'red'
