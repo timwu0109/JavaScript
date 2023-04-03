@@ -103,20 +103,30 @@
 
 // ------------- onclick 跟 event的差異性onclick 是屬性所以重複使用，後面會蓋掉前面的，但是event 不會蓋掉所以彈性更大，以下兩種測試就知道用event會比較有彈性 ，然而onclick只是一個屬性
 
-const onclickTest = document.querySelector('#name')
+// const onclickTest = document.querySelector('#name')
 
-onclickTest.onclick = () => {
-  console.log("onclick:"+123);
-}
-onclickTest.onclick = () => {
-  console.log("onclick重複被改掉:"+999);
-}
+// onclickTest.onclick = () => {
+//   console.log("onclick:"+123);
+// }
+// onclickTest.onclick = () => {
+//   console.log("onclick重複被改掉:"+999);
+// }
 
-onclickTest.addEventListener('click' , () => {
-  console.log('event:' + 546);
+// onclickTest.addEventListener('click' , () => {
+//   console.log('event:' + 546);
+// })
+// onclickTest.addEventListener('click' , () => {
+//   console.log('event:' + 789);
+// })
+
+
+// ------------ preventDefault
+// 可以透過addEventListener裡面的屬性，preventDefault 去做暫停
+
+const link = document.querySelector('a')
+
+link.addEventListener('click' , (e)=>{
+  e.preventDefault()
+  // console.log("clicked");
 })
-onclickTest.addEventListener('click' , () => {
-  console.log('event:' + 789);
-})
-
 
