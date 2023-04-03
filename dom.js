@@ -120,13 +120,13 @@
 // })
 
 
-// ------------ preventDefault
-// 可以透過addEventListener裡面的屬性，preventDefault 去做暫停
+// // ------------ preventDefault
+// // 可以透過addEventListener裡面的屬性，preventDefault 去做暫停
 
-const link = document.querySelector('a')
+// const link = document.querySelector('a')
 
-link.addEventListener('click' , (e)=>{
-  e.preventDefault()
-  // console.log("clicked");
-})
+// link.addEventListener('click' , (e)=>{
+//   e.preventDefault()
+//   // console.log("clicked");
+// })
 
