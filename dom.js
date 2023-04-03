@@ -25,10 +25,10 @@
 
 
 
+
+
+
 // ---------------------------
-
-
-
 // 抓到DOM元素後如何改變HTML的輸出
 // --- 關鍵重點就是我們實質上都沒有更改到HTML的東西 ---
 // 所以只要我們再重新整理之後就會再回來，這邊的重點就是請瀏覽器幫我們演戲讓，讓使用者感覺好像不一樣但實際上沒變
@@ -44,11 +44,62 @@
 
   
 
-// -----------
-// 事件
+// ------------------------------
+// 事件event
+// document.addEventListener("發生的事件" ,()=>{
+//   寫入要做的事情
+// })
 
 
-document.addEventListener('click' , ()=>{
-  const changeDoms = document.getElementById('name');
-  changeDoms.classList.add('big-red') 
-})
+// 最原始可以讓script type 放到最上面可以配合這個事件DomContentLoaded 用這事件會等到 document被解析完之後才會觸發
+// 後來出了一個更簡便的就是defer 直接加在script後面就可以了
+
+// document.addEventListener('click' , ()=>{
+//   const changeDoms = document.getElementById('name');
+//   changeDoms.classList.add('big-red') 
+// })
+
+
+
+
+
+
+
+
+// ------------------------------
+// callback function 回呼函數
+// 前面不見得一定要加document 也直接用抓到的DOM元素再加上event事件
+// callback function 就是監聽事件的第二個function parameter 但是callback 是什麼？
+// 事實上callback 就只是個function 不代表任何行為，意義就像字面上得，簡單解釋來說的話，click event 沒點擊的時候沒事發生，當一點擊之後就會回傳function內的事情down ，就只有這樣，我之前想太多了XD
+
+// const changeDoms = document.getElementById('name');
+
+// changeDoms.addEventListener('click' , (x)=>{
+//   console.log(123);
+//   console.log(x);
+// })
+
+
+
+
+
+
+
+
+// ------------------------------
+// 也可以在外面先宣告fn 在把fn帶進去event裡面去這樣也可以喔，但是為什麼要把fn拆出來就是為了什麼呢？想想fn是為了可以重複使用，所以當其他DOM元素要用的時後，就可以一起使用這個fn
+// function 裡面的參數，當我們log出來之後是一包物件，所以當我們用e.textContent=123就變成把原本的textContent function改掉，因為上面變成是在加屬性
+
+// const changeDoms = document.getElementById('name');
+
+// const clickHandle = (e) => {
+//   e.target.textContent = '123'
+//   console.log('我把宣告的fn當成引數');  
+//   console.log(e);
+// }
+// changeDoms.addEventListener('click' , clickHandle)
+
+
+
+
+
