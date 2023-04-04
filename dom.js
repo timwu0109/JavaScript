@@ -44,11 +44,14 @@
 
   
 
+
+
+
+
 // ------------------------------
 // 事件event
 // document.addEventListener("發生的事件" ,()=>{
-//   寫入要做的事情
-// })
+//   寫入要做的事情})
 
 
 // 最原始可以讓script type 放到最上面可以配合這個事件DomContentLoaded 用這事件會等到 document被解析完之後才會觸發
@@ -63,12 +66,9 @@
 
 
 
-
-
-
 // ------------------------------
 // callback function 回呼函數
-// 前面不見得一定要加document 也直接用抓到的DOM元素再加上event事件
+// 前面不見得一定要加document 也直接用抓到的DOM再加上event事件
 // callback function 就是監聽事件的第二個function parameter 但是callback 是什麼？
 // 事實上callback 就只是個function 不代表任何行為，意義就像字面上得，簡單解釋來說的話，click event 沒點擊的時候沒事發生，當一點擊之後就會回傳function內的事情down ，就只有這樣，我之前想太多了XD
 
@@ -84,11 +84,9 @@
 
 
 
-
-
 // ------------------------------
 // 也可以在外面先宣告fn 在把fn帶進去event裡面去這樣也可以喔，但是為什麼要把fn拆出來就是為了什麼呢？想想fn是為了可以重複使用，所以當其他DOM元素要用的時後，就可以一起使用這個fn
-// function 裡面的參數，當我們log出來之後是一包物件，所以當我們用e.textContent=123就變成把原本的textContent function改掉，因為上面變成是在加屬性
+// function 裡面的 e，log後發現是一包物件，所以當我們用e.textContent=123是在賦值，變成原本的textContent被改掉了
 
 // const changeDoms = document.getElementById('name');
 
@@ -101,7 +99,10 @@
 
 
 
-// ------------- onclick 跟 event的差異性onclick 是屬性所以重複使用，後面會蓋掉前面的，但是event 不會蓋掉所以彈性更大，以下兩種測試就知道用event會比較有彈性 ，然而onclick只是一個屬性
+
+
+
+// ------------- onclick 跟 event的差異性onclick 是屬性所以重複使用，後面會蓋掉前面的，但是event 不會蓋掉所以彈性更大，以下兩種測試就知道用event會比較有彈性 ，然而onclick只是一個屬性 ， onclickTest.onclick = 等於後面再賦值
 
 // const onclickTest = document.querySelector('#name')
 
@@ -120,6 +121,8 @@
 // })
 
 
+
+
 // // ------------ preventDefault
 // // 可以透過addEventListener裡面的屬性，preventDefault 去做暫停
 
@@ -127,6 +130,10 @@
 
 // link.addEventListener('click' , (e)=>{
 //   e.preventDefault()
-//   // console.log("clicked");
+//   console.log(e);
+//   console.log("clicked");
 // })
+
+
+// 這邊我有個疑問就是我在 callback function 裡面，使用preventDefault 是算是他的屬性嗎？
 
