@@ -46,8 +46,6 @@ const minItem = 1
 
 
 
-
-
 // // 精簡濃縮版本
 
 // const minus = document.querySelector('#minus')
