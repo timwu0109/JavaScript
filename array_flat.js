@@ -24,9 +24,48 @@
 // ...的預設就是[] ，所以就當沒有引數的時候，也會拿到一個空陣列
 // ...必須是擺在parameter 的最後一個，因為他都拿完了後面就算有參數也拿不到東西
 
-function  dotTraning(a , b , c , d ,...rest ) {
-  console.log(a,b,c,d);
-  console.log(rest);
+// function  dotTraning(a , b , c , d ,...rest ) {
+//   console.log(a,b,c,d);
+//   console.log(rest);
+// }
+
+// dotTraning( 1 , 2 , 3 , 4 ,5 ,6,7,8,9,10)
+
+
+
+
+
+// ----------------
+// 自己刻一個concat() 的效果，帶入幾個陣列就把幾個接在一起
+// 題目
+// const a = [1, 2, 3];
+// const b = [4, 5, 6];
+// const c = [7, 8, 9];
+// const d = ["a", "b", "c"];
+
+// function myConcat(??) {
+//   // ....
+// }
+
+// const all = myConcat(a, b, c, d);
+// console.log(all);
+
+
+
+
+//自己實作 ，有兩個沒做好的地方
+// 1. 在function parameter 中雖然用dot讓他全部接收，function內在用的時候，直接用array 就好不用加... 
+// 2. function 裡面使用的參數不用外面在用陣列把他包起來，因為function parameter dot 預設是空陣列，所以輸出值一定會重組變成一個新的陣列，所以就不用在用[]包起來
+
+const a = [1, 2, 3];
+const b = [4, 5, 6];
+const c = [7, 8, 9];
+const d = ["a", "b", "c"];
+
+function myConcat(...array) {
+  console.log(array);
+  // return array.flat()
 }
 
-dotTraning( 1 , 2 , 3 , 4 ,5 ,6,7,8,9,10)
+const all = myConcat(a, b, c, d);
+console.log(all);

@@ -76,16 +76,35 @@
 
 // 以下解構版本，這時候會看到我們用前面的方式去解構出來我們要的屬性，然而如果heroDate 這個參數在function 裡面沒有在用到的時候，就也可以有另外一種做法 直接把解構的屬性放在function的 parameter 裡面function destructuring({name , age}){} 這樣就也是可以的喔！
 
-function destructuring(heroDate) {
-  const {name , age} = heroDate
+// function destructuring(heroDate) {
+//   const {name , age} = heroDate
 
-  console.log(name);
-  console.log(age);
-}
+//   console.log(name);
+//   console.log(age);
+// }
 
-const hero  = {
-  name : 'Tim',
-  age : 32 , 
-}
+// const hero  = {
+//   name : 'Tim',
+//   age : 32 , 
+// }
 
-destructuring(hero)
+// destructuring(hero)
+
+
+
+
+// -------------------- destructuring for array
+// 陣列也是可以destructuring
+
+const a = [ 1 , 2 , 3]
+
+// 原始要取陣列裡面值的做法
+// const first  = a[0]
+// const second = a[1]
+// const last = a[2]
+
+// 透過解構可以直接拿出來用，但切記要相對應到陣列的位子，一個蘿菠一個坑當然在這邊也可以用dot 去抓剩下的數打包成一個新的陣列
+const [first , second , last] = a
+
+
+console.log(first , second , last);
