@@ -69,16 +69,50 @@
 
 // 如何抓到兄弟姐妹元素
 
-const li = document.querySelector('li:nth-child(2)')
+// const li = document.querySelector('li:nth-child(2)')
 
-// 取得前一個
-console.log(li.previousElementSibling); //取得前一個el
-// 印出 <li>tim</li>
-console.log(li.previousSibling); // 取得前一個node結點
-// 印出#text (每個type 中間都有空白，這裡text就是空白，因為空白也是結點)
+// // 取得前一個
+// console.log(li.previousElementSibling); //取得前一個el
+// // 印出 <li>tim</li>
+// console.log(li.previousSibling); // 取得前一個node結點
+// // 印出#text (每個type 中間都有空白，這裡text就是空白，因為空白也是結點)
 
-// 取得下一個
-console.log(li.nextElementSibling); // 印出 <li>parker</li>
-console.log(li.nextSibling); // 印出#text 
+// // 取得下一個
+// console.log(li.nextElementSibling); // 印出 <li>parker</li>
+// console.log(li.nextSibling); // 印出#text 
+
+
+
+
+// ---------------------- about the insertAdjacentElement('position' , element)
+// insertAdjacentElement 是針對元素，所以如果給的參數不是元素就會報錯現在有比較投機的寫法
+// 對上層元素用的fn，可以藉由不同的解法將新增的元素，放在不同的位子，參照以下
+
+//     beforebegin
+// ul  ------------ begin
+//     afterbegin
+//    li
+//    li
+//    li
+//     beforeend
+// /ul ------------ after
+//     afterend
+
+
+const ul = document.querySelector('ul')
+const addBtn = document.querySelector('#addBtn')
+
+
+addBtn.addEventListener('click' , () => {
+  // const el = document.createElement('li')
+  // el.textContent =  '123' // 傳統用法
+  // ul.insertAdjacentElement('beforeend' , el)
+
+  const el = '<li>567</li>' 
+  // 可以用偷雞方法這樣可以直接把，文字當成HTML塞進去
+  ul.insertAdjacentHTML('afterbegin' , el)
+} )
+
+
 
 
