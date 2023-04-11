@@ -1,3 +1,5 @@
+// 用jQuery版本
+
 const taskInput = document.querySelector('#taskInput')
 const addBtn = document.querySelector('#addBtn')
 const list = document.querySelector('.todo-list')
@@ -26,21 +28,43 @@ function resetInput(){
   taskInput.focus()
 }
 
-
-addBtn.addEventListener('click' , () => {
+$('#addBtn').click(() => {
   addTask(taskInput.value)
 })
+// addBtn.addEventListener('click' , () => {
+//   addTask(taskInput.value)
+// })
 
-taskInput.addEventListener('keydown' , (e)=>{
+$('#taskInput').keydown((e)=>{
   if(e.key === 'Enter'){
     addTask(taskInput.value)
   }
 })
+// taskInput.addEventListener('keydown' , (e)=>{
+//   if(e.key === 'Enter'){
+//     addTask(taskInput.value)
+//   }
+// })
 
-list.addEventListener('click' , (e)=>{
+$('.todo-list').click((e)=>{
   if(e.target.localName === 'button'){
     const btn = e.target
     btn.parentElement.remove()
   }
-  
 })
+// list.addEventListener('click' , (e)=>{
+//   if(e.target.localName === 'button'){
+//     const btn = e.target
+//     btn.parentElement.remove()
+//   }
+  
+// })
+
+
+// document.addEventListener('DOMContentLoaded',()=>{
+//   console.log(123);
+// })
+
+// $().ready(function(){
+//   console.log(123);
+// })
