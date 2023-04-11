@@ -1,37 +1,58 @@
+// querySelectorAll 抓回來是一群el是一個no list一個空陣列，所以addEventLister就這有辦法幫他加，因為監聽只能加在el , window , document
+
+// const closeBtns = document.querySelectorAll('.closeBtn')
+
+// closeBtns.forEach((el)=>{
+//   el.addEventListener('click' , ()=>{
+//     console.log('btn');
+//   })
+// } )
+
+
+
 const taskInput = document.querySelector('#taskInput')
-taskInput.focus()
+reset()
 const addBtn = document.querySelector('#addBtn')
-const ul = document.querySelector('.todo-list')
-const closeBtn = document.querySelectorAll('.closeBtn')
+const todoList = document.querySelector('.todo-list')
 
-const addTask = () => {
-  const task = taskInput.value.trim()
+function createElement(task){
   const el  =   `<li class="todo-item">
-  <span class="item">${task}</span>
-  <button class="closeBtn">X</button>
-  </li>`
+    <span class="item">${task}</span>
+    <button class="closeBtn">X</button>
+    </li>`
+  todoList.insertAdjacentHTML('afterbegin' , el)
+}
 
+
+function  reset(){
+  taskInput.value = ' '
+  taskInput.focus()
+}
+
+function addTask(task){
+  task = task.trim()
+ 
   if (task){
-    ul.insertAdjacentHTML('afterbegin' , el)
-    taskInput.value = ' '
-    taskInput.focus()
-  }}
+    createElement(task)
+    reset()
+}}
 
-
-
-closeBtn.addEventListener('click' , () => {
-    console.log("close");
+todoList.addEventListener('click',(e)=>{
+  if(e.target.localName === 'button'){
+    const btn = e.target
+    btn.parentElement.remove();
+    };
 })
-  
 
+addBtn.addEventListener('click' , ()=>{
+  addTask(taskInput.value)
+})
 
-
-
-addBtn.addEventListener('click' , addTask)
-
- taskInput.addEventListener('keypress' , (e)=>{
-    console.log(e);
+taskInput.addEventListener('keypress' , (e)=>{
   if(e.key === 'Enter'){
-    addTask()
+    addTask(taskInput.value)
     } 
- })
+})
+
+
+
