@@ -2,19 +2,23 @@
 
 // parentElement >不是一個function所以不用呼叫
 
-// function program
+// function programming 盡量不要讓function裡面去外面拿東西，盡量透過輸入值跟輸出值把同樣得東西拆到外面
+
+// function programming 有所謂的副作用 side effect ，解釋白一點就是他們會影響function外面的變數，不管是呼叫或抓外面的值都是這樣
+
+// pure function 是像這樣的 > function a(a,b){ return a+b} 全部都在function裡面做完，不實用但還是盡量把fn 都切成小區塊
 
 
 
 const taskInput = document.querySelector('#taskInput')
-resetInput()
+resetInput(taskInput)
 const addBtn = document.querySelector('#addBtn')
 const list = document.querySelector('.todo-list')
 
 
-function resetInput(){
-  taskInput.value = ''
-  taskInput.focus()
+function resetInput(reset){
+  reset.value = ''
+  reset.focus()
 }
 
 
@@ -31,7 +35,7 @@ function addTask(task) {
   
   if(task !== ''){
     createElement(task)
-    resetInput()
+    resetInput(taskInput)
   }
 }
 
@@ -52,9 +56,7 @@ taskInput.addEventListener('keypress' , (e)=>{
 list.addEventListener('click' , (e)=>{
   if(e.target.localName === 'button'){
     const btn = e.target
-    console.log(btn);
     btn.parentElement.remove()
-    
   };
 })
 
