@@ -36,21 +36,41 @@
 
 //-----------------------forEach 更好做法
 
+// const API = "https://jsonplaceholder.typicode.com/posts"
+// const req = new XMLHttpRequest
+
+// req.addEventListener('load' , () => {
+//   const post = JSON.parse(req.responseText)  
+//   const list = document.querySelector('#list')
+
+//   let result = ""
+//   post.forEach((post)=>{
+//     result = result +  `<li>${post.title}</li>`;
+//     // 這邊先吧所有東西集結才一個物件在給insertAdjacentHTML去做渲染，就不會太消耗效能
+//   })
+//    list.insertAdjacentHTML('beforeend' , result)
+//    // 移到外層
+// })
+
+// req.open('GET' , API)
+// req.send()
+
+
+// ---------------reduce 當loop要去外面拿東西一定都會有更好的寫法，像在這邊是做加總就可以用reduce把字串疊加起來
+
 const API = "https://jsonplaceholder.typicode.com/posts"
 const req = new XMLHttpRequest
 
 req.addEventListener('load' , () => {
-  const post = JSON.parse(req.responseText)  
+  const posts = JSON.parse(req.responseText)  
   const list = document.querySelector('#list')
+  console.log(posts);
+  const result =  posts.reduce((ac , {title , id , userId})=>{
+    return ac + `<li>${id}+ ${userId} +${title}</li>`
+  } , "")
 
-  let result = ""
-  post.forEach((post)=>{
-    result = result +  `<li>${post.title}</li>`;
-    // 這邊先吧所有東西集結才一個物件在給insertAdjacentHTML去做渲染，就不會太消耗效能
-  })
-   list.insertAdjacentHTML('beforeend' , result)
-   // 移到外層
+  list.insertAdjacentHTML('beforeend' , result)
 })
 
-req.open('GET' , API)
+req.open('GET' , API) //這邊網址對動詞也要對才可以抓到東西＊＊重要
 req.send()
