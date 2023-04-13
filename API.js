@@ -58,19 +58,19 @@
 
 // ---------------reduce 當loop要去外面拿東西一定都會有更好的寫法，像在這邊是做加總就可以用reduce把字串疊加起來
 
-const API = "https://jsonplaceholder.typicode.com/posts"
-const req = new XMLHttpRequest
+// const API = "https://jsonplaceholder.typicode.com/posts"
+// const req = new XMLHttpRequest
 
-req.addEventListener('load' , () => {
-  const posts = JSON.parse(req.responseText)  
-  const list = document.querySelector('#list')
-  console.log(posts);
-  const result =  posts.reduce((ac , {title , id , userId})=>{
-    return ac + `<li>${id}+ ${userId} +${title}</li>`
-  } , "")
+// req.addEventListener('load' , () => {
+//   const posts = JSON.parse(req.responseText)  
+//   const list = document.querySelector('#list')
+//   console.log(posts);
+//   const result =  posts.reduce((ac , {title , id , userId})=>{
+//     return ac + `<li>${id}+ ${userId} +${title}</li>`
+//   } , "")
 
-  list.insertAdjacentHTML('beforeend' , result)
-})
+//   list.insertAdjacentHTML('beforeend' , result)
+// })
 
-req.open('GET' , API) //這邊網址對動詞也要對才可以抓到東西＊＊重要
-req.send()
+// req.open('GET' , API) //這邊網址對動詞也要對才可以抓到東西＊＊重要
+// req.send()
