@@ -52,4 +52,3 @@ fetch(API)
   console.log(err);
 })
 
-console.log(fetch(API))
