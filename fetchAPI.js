@@ -4,32 +4,52 @@
   // JS是單一執行序的語言，什麼是單一執行序用白話來說是，一個廚師煮很多樣菜，會有先後順序做完 
 
   // 這邊的then() ,就像我們NEW XMLHttpRequest 之後加監聽器然後監聽Event Load 是在做一樣的事情
+
+
+
+// const API = "https://jsonplaceholder.typicode.com/posts"
+
+// fetch(API)
+// .then((tim)=>{
+//   return tim.json()
+//   // console.log(tim.json())
+//   //這邊tim.json是個premise 的東西 ，只要是這物件就可以用then and catch 去接
+// }).then((post)=>{
+//   const list = document.querySelector('#list')
+//   const el = post.reduce((acc , {title})=>{
+//     return  acc + `<li>${title}</li>`
+//   } , '')
   
-const list = document.querySelector('#list')
+//   list.insertAdjacentHTML('beforeend' , el )
+//   //用json去解析完之後就話把原本抓回來的文字檔自動轉換成一包物件
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+// -------------可以寫得更乾淨一點」
+// 把function 拆出來用呼叫的方式去處理
+
 
 const API = "https://jsonplaceholder.typicode.com/posts"
 
-fetch(API)
-.then((tim)=>{
-  return tim.json()
-  // console.log(tim.json())
-  //這邊tim.json是個premise 的東西 ，只要是這物件就可以用then and catch 去接
-}).then((post)=>{
-  console.log(post);
-
+function postResp(post) {
+  const list = document.querySelector('#list')
   const el = post.reduce((acc , {title})=>{
     return  acc + `<li>${title}</li>`
   } , '')
-  
   list.insertAdjacentHTML('beforeend' , el )
-  //用json去解析完之後就話把原本抓回來的文字檔自動轉換成一包物件
+}
+
+fetch(API)
+.then((tim)=>{
+  console.log(tim);
+  return tim.json()
+}).then((post)=>{
+  postResp(post)
 })
 .catch((err)=>{
   console.log(err);
 })
 
-
-
-// ---------------call stack呼叫堆疊
-// 這就像放盤子的桶子，先放進去會最後出來這觀念又叫first in last out (FILO)
-// 當然有也另外一種 堆疊方式叫做(FIFO)first in first out
+console.log(fetch(API))
