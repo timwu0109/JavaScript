@@ -11,22 +11,25 @@ searchForm.addEventListener('submit' , (e)=>{
   const keyWord = searchKeyword.value.trim()
 
   if(keyWord !== ''){
-    fetch(DATE_SOUCER)
-    .then((resp)=> resp.json())
-    .then((stations)=>{
-      renderStation(stations , keyWord)
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+    axios.get(DATE_SOUCER)
+    .then(({data})=>{renderStation(data , keyWord)})
+    .catch((err) =>{console.log(err);})
+
+    // fetch(DATE_SOUCER)
+    // .then((resp)=> resp.json())
+    // .then((stations)=>{
+    //   renderStation(stations , keyWord)
+    // })
+    // .catch((err)=>{
+    //   console.log(err);
+    // })
   }else{
     alert('請輸入正確文字')
   }
 })
 
 function filterStation(stations , keyWord) {
-  return stations.filter((station)=>{ return station.ar.includes(keyWord);
-  })
+  return stations.filter((station)=> station.ar.includes(keyWord))
 }
 
 function reduceStation(stations) {
@@ -36,8 +39,7 @@ function reduceStation(stations) {
     ${sna.replace('YouBike2.0_','')}(${sbi}/${tot})<br>
     <small class="text-muted">${ar}</small>
     </li>`
-  , '')
-}
+  , '')}
 
 function renderItem(result) {
   siteList.textContent = ''
