@@ -24,3 +24,17 @@
 //     console.log(a);
 //   }, 1000); // //這邊沒有家變數所以在一秒後會直接印出全部
 // };
+
+
+// -----------------setInterval
+// let a = 10
+
+// const setIntervalId = setInterval(() =>{
+//   if(a > 0){
+//     a-- ; 
+//     console.log(a);
+//   }else{
+//     clearInterval(setIntervalId)
+//   }
+// } , 1000)
+
