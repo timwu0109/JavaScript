@@ -53,3 +53,17 @@
 // }
 
 // myName('tim')  // tim 
+
+
+
+
+//-----------use strict嚴格模式
+// 在嚴格模式執行下就不會隨意增加全域變數
+
+function hi(){
+  'use strict'
+  a = 2 
+  console.log(a); //印出a is not defined
+}
+
+hi()
