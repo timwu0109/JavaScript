@@ -126,3 +126,40 @@ const actions = {
 // }
 
 // const h1 = new heroCreator('tim' , 100)
+
+
+
+
+// -------------------- inherit 繼承概念
+class Creator {
+  constructor(name , power){
+    this.name = name;
+    this.power = power;
+  }
+}
+
+class monsterCreate extends Creator{
+  attack(name){
+    console.log(`${name}，攻擊！！`);
+  }
+
+  sleep(name){
+    console.log(`${name}，使出催眠！`);
+  }
+
+}
+
+class heroCreate extends Creator{
+  attack (name) {
+    console.log(`${name}，認真系列真。亂打`);
+  }
+  sleep (name) {
+    console.log(`${name}，認真系列倒頭就睡`);
+  }
+}
+
+const heroOne = new heroCreate('chiYu' , 100)
+console.log(heroOne.sleep(heroOne.name));
+
+const monsterOne = new monsterCreate('大蛇' , 5000) 
+console.log(monsterOne.attack(monsterOne.name));
