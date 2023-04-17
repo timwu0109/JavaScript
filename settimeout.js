@@ -40,32 +40,69 @@
 
 // ---------時鐘大概寫法
 
+// let sec = 10
+// let secStop = sec
+// let state = 'stop'
+// let setIntervalId = setInterval(() =>{
+//   sec-- ;
+//   if(sec === 0){
+//     clearInterval(setIntervalId) }
+//   console.log(sec);
+// } , 1000)
+
+
+// document.addEventListener('keydown' , (e)=>{
+//   if(e.code === 'Space'){
+//     if(state === 'running'){
+//       state = 'stop'
+//       secStop = sec
+//       clearInterval(setIntervalId)
+//     }else{
+//       state = 'running'
+//       sec = secStop
+//       setIntervalId = setInterval(() =>{
+//         sec-- ;
+//         if(sec === 0){
+//           clearInterval(setIntervalId) }
+//         console.log(sec);
+//       } , 1000)
+//     }
+//   };
+// })
+
+
+// ------------
+
 let sec = 10
 let secStop = sec
 let state = 'stop'
-let setIntervalId = setInterval(() =>{
+
+let setIntervalId = setInterval(()=>{
   sec-- ;
-  if(sec === 0){
-    clearInterval(setIntervalId) }
+  if (sec === 0){
+    clearInterval(setIntervalId)
+  }
   console.log(sec);
 } , 1000)
 
 
-document.addEventListener('keydown' , (e)=>{
+document.addEventListener('keypress' , (e)=>{
   if(e.code === 'Space'){
     if(state === 'running'){
-      state = 'stop'
-      secStop = sec
-      clearInterval(setIntervalId)
+      state = 'stop';
+      secStop = sec;
+      clearInterval(setIntervalId);
     }else{
-      state = 'running'
-      sec = secStop
-      setIntervalId = setInterval(() =>{
-        sec-- ;
-        if(sec === 0){
-          clearInterval(setIntervalId) }
-        console.log(sec);
-      } , 1000)
+        state = 'running'
+        sec = secStop
+        setIntervalId = setInterval(()=>{
+          sec-- ;
+          if (sec === 0){
+            clearInterval(setIntervalId) 
+          };
+          console.log(sec);
+        } , 1000)
+      }
     }
-  };
-})
+  }
+)
