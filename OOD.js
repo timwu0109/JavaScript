@@ -50,11 +50,12 @@ const actions = {
 
 // ------------------ new method
 // 用另外一種方式來做prototype 
+// this -> {} 當我們用new的時候會做幾件事情
+//1. {}.__proto = heroCreate.prototype 把他指向他
+//2. fn裡面做出一個類似{}的空物件行為 heroCreate {}
+//3. this -> {} 會有生出一個this變數，透指向空物件，用以下方式就可以把屬性塞進去，並自動return
+
 function heroCreate (name , power) {
-  // this -> {} 當我們用new的時候會做幾件事情
-  //1. {}.__proto = heroCreate.prototype 把他指向他
-  //2. fn裡面做出一個類似{}的空物件行為 heroCreate {}
-  //3. this -> {} 會有生出一個this變數，透指向空物件，用以下方式就可以把屬性塞進去，並自動return
   this.name = name;
   this.power = power;
 }
@@ -68,7 +69,6 @@ const h1 = new heroCreate("tim" , 100);
 
 // heroCreate.prototype = actions 
 // JS執行序問題，我一開始擺在這地方用h1.__proto去找會找不到，因為上面已經new完了，我才加proto給他所以在他的prototype裡面就不會有，下面範例h2 建立在heroCreate.prototype之後，所以h2.__proto__就會有actions的屬性可以用！
-
 console.log(h1);
 
 // const h2 =new heroCreate("oli" , 100);
@@ -80,8 +80,21 @@ console.log(h1);
 // 基本型別又分成 string、number、boolean、null、undefined 幾種，除了以上幾種之外，其他都可以歸類至物件型別 (Object)。
 // 用上面就可以解釋下面[].__proto__ === Array.prototype
 
-const a = new Array()
+// const a = new Array()
 
-console.log(a); //印出[]
-console.log(a.__proto__.map === Array.prototype.map
-); //印出true 
+// console.log(a); //印出[]
+// console.log(a.__proto__.map === Array.prototype.map
+// ); //印出true 
+
+// 只要抓到prototype就知道JS的運作也就知道如何幫現有的fn加方法及JS fn是怎麼運作的
+Array.prototype.hello = () => {
+  console.log('hi');
+}
+console.log([].hello()); // 印出hi , return undefined
+
+
+String.prototype.isValue = () => {
+  return true
+}
+console.log(''.isValue()); // 印出true
+
