@@ -63,7 +63,7 @@ heroCreate.prototype = actions
 // 每個物件都有__proto__ 屬性
 // 每個fn都有 prototype屬性 , fn在js內也是物件的一種所以fn 也有 __proto__ ，所有fn 一開始都是{ }空物件
 // {}.__proto === heroCreate.prototype 
-
+// h1.attack -> h1 -> h1.__proto__ -> heroCreate.prototype -> attack
 const h1 = new heroCreate("tim" , 100);
 
 // heroCreate.prototype = actions 
@@ -76,4 +76,12 @@ console.log(h1);
 // console.log(h2);
 
 
+// -----------------MDN Array.prototype.map()
+// 基本型別又分成 string、number、boolean、null、undefined 幾種，除了以上幾種之外，其他都可以歸類至物件型別 (Object)。
+// 用上面就可以解釋下面[].__proto__ === Array.prototype
 
+const a = new Array()
+
+console.log(a); //印出[]
+console.log(a.__proto__.map === Array.prototype.map
+); //印出true 
