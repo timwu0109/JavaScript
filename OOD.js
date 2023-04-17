@@ -48,32 +48,33 @@ const actions = {
 // console.log(h2);
 
 
-// ------------------ new method
-// 用另外一種方式來做prototype 
-// this -> {} 當我們用new的時候會做幾件事情
-//1. {}.__proto = heroCreate.prototype 把他指向他
-//2. fn裡面做出一個類似{}的空物件行為 heroCreate {}
-//3. this -> {} 會有生出一個this變數，透指向空物件，用以下方式就可以把屬性塞進去，並自動return
+// // ------------------ new method
+// // 用另外一種方式來做prototype 
+// // this -> {} 當我們用new的時候會做幾件事情
+// //1. {}.__proto = heroCreate.prototype 把他指向他
+// //2. fn裡面做出一個類似{}的空物件行為 heroCreate {}
+// //3. this -> {} 會有生出一個this變數，透指向空物件，用以下方式就可以把屬性塞進去，並自動return
 
-function heroCreate (name , power) {
-  this.name = name;
-  this.power = power;
-}
-heroCreate.prototype = actions
+// function heroCreate (name , power) {
+//   this.name = name;
+//   this.power = power;
+// }
+// heroCreate.prototype = actions
 
-// 每個物件都有__proto__ 屬性
-// 每個fn都有 prototype屬性 , fn在js內也是物件的一種所以fn 也有 __proto__ ，所有fn 一開始都是{ }空物件
-// {}.__proto === heroCreate.prototype 
-// h1.attack -> h1 -> h1.__proto__ -> heroCreate.prototype -> attack
-const h1 = new heroCreate("tim" , 100);
+// // 每個物件都有__proto__ 屬性
+// // 每個fn都有 prototype屬性 , fn在js內也是物件的一種所以fn 也有 __proto__ ，所有fn 一開始都是{ }空物件
+// // {}.__proto === heroCreate.prototype 
+// // h1.attack -> h1 -> h1.__proto__ -> heroCreate.prototype -> attack
+// const h1 = new heroCreate("tim" , 100);
 
-// heroCreate.prototype = actions 
-// JS執行序問題，我一開始擺在這地方用h1.__proto去找會找不到，因為上面已經new完了，我才加proto給他所以在他的prototype裡面就不會有，下面範例h2 建立在heroCreate.prototype之後，所以h2.__proto__就會有actions的屬性可以用！
-console.log(h1);
+// // heroCreate.prototype = actions 
+// // JS執行序問題，我一開始擺在這地方用h1.__proto去找會找不到，因為上面已經new完了，我才加proto給他所以在他的prototype裡面就不會有，下面範例h2 建立在heroCreate.prototype之後，所以h2.__proto__就會有actions的屬性可以用！
+// console.log(h1);
 
-// const h2 =new heroCreate("oli" , 100);
+// // const h2 =new heroCreate("oli" , 100);
 
-// console.log(h2);
+// // console.log(h2);
+
 
 
 // -----------------MDN Array.prototype.map()
@@ -86,15 +87,42 @@ console.log(h1);
 // console.log(a.__proto__.map === Array.prototype.map
 // ); //印出true 
 
+
+
+
 // 只要抓到prototype就知道JS的運作也就知道如何幫現有的fn加方法及JS fn是怎麼運作的
-Array.prototype.hello = () => {
-  console.log('hi');
-}
-console.log([].hello()); // 印出hi , return undefined
+// Array.prototype.hello = () => {
+//   console.log('hi');
+// }
+// console.log([].hello()); // 印出hi , return undefined
+
+// String.prototype.isValue = () => {
+//   return true
+// }
+// console.log(''.isValue()); // 印出true
 
 
-String.prototype.isValue = () => {
-  return true
-}
-console.log(''.isValue()); // 印出true
 
+
+
+
+// ------------- class
+// ES6加入 class只是語法糖衣，讓JS寫起來更像其他OOD語言的寫法
+// class 用constructor做出變數物件 ，在class 裡面直接寫function, 直接可以拿做使用！！
+
+// class heroCreator{
+//   constructor(name , power){
+//     this.name = name
+//     this.power = power
+//   }
+
+//   attack(){
+//     console.log('attack!!!');
+//   }
+
+//   sleep(){
+//     console.log('Zzzzzz!!!');
+//   }
+// }
+
+// const h1 = new heroCreator('tim' , 100)
