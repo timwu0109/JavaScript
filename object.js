@@ -35,10 +35,7 @@ const objectKey = {
 
 console.log(objectKey.name+' bmi = '+objectKey.bmi( 80 , 180) );
 
-
-
 // 為物件增加屬性
-
 
 console.log(objectKey); //印出 {name: 'tim', age: 18, date: 19910109, bmi: ƒ}
 
