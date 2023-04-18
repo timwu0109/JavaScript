@@ -15,7 +15,7 @@
 
 // -----------------setTimeout倒數計時
 // setTimeout 跟 setInterval 差異在
-// setTimeout << 他的意思是在說一秒之後全部做完
+// setTimeout << 他的意思是在說一秒之後全部做完，只做一次不重複
 //setInterval << 他會每一秒每一秒做，就不用再跑迴圈，但是他不會停下來
 
 
@@ -73,13 +73,47 @@
 
 // ------------
 
-let sec = 10
+// let sec = 10
+// let secStop = sec
+// let state = 'stop'
+
+// let setIntervalId = setInterval(()=>{
+//   sec-- ;
+//   if (sec === 0){
+//     clearInterval(setIntervalId)
+//   }
+//   console.log(sec);
+// } , 1000)
+
+
+// document.addEventListener('keypress' , (e)=>{
+//   if(e.code === 'Space'){
+//     if(state === 'running'){
+//       state = 'stop';
+//       secStop = sec;
+//       clearInterval(setIntervalId);
+//     }else{
+//         state = 'running'
+//         sec = secStop
+//         setIntervalId = setInterval(()=>{
+//           sec-- ;
+//           if (sec === 0){
+//             clearInterval(setIntervalId) 
+//           };
+//           console.log(sec);
+//         } , 1000)
+//       }
+//     }
+//   }
+// )
+
+let sec = 5 
 let secStop = sec
 let state = 'stop'
-
+// 這邊const 忘記改成let
 let setIntervalId = setInterval(()=>{
-  sec-- ;
-  if (sec === 0){
+  sec--
+  if(sec === 0){
     clearInterval(setIntervalId)
   }
   console.log(sec);
@@ -89,20 +123,21 @@ let setIntervalId = setInterval(()=>{
 document.addEventListener('keypress' , (e)=>{
   if(e.code === 'Space'){
     if(state === 'running'){
-      state = 'stop';
-      secStop = sec;
-      clearInterval(setIntervalId);
+      state = 'stop'
+      secStop = sec
+      clearInterval(setIntervalId)
     }else{
-        state = 'running'
-        sec = secStop
-        setIntervalId = setInterval(()=>{
-          sec-- ;
-          if (sec === 0){
-            clearInterval(setIntervalId) 
-          };
-          console.log(sec);
-        } , 1000)
-      }
+      state = 'running'
+      sec = secStop
+      setIntervalId = setInterval(()=>{
+        sec--
+        if(sec === 0){
+          clearInterval(setIntervalId)
+        }
+        console.log(sec);
+      } , 1000)
     }
   }
-)
+})
+
+
