@@ -19,6 +19,9 @@
 
 
 
+
+
+
 // // ---------------- Object.create() 
 // // 每一個物件都有 __proto__ ，當我們要使用某個物件的屬性的時候，首先會先找自己的物件本身有沒有，當沒有的時候就會沿著 _ _proto_ _ 往下去找另外一個物件並問他有沒有這屬性，如果沒有就在繼續找下去直到沒有
 
@@ -48,9 +51,13 @@ const actions = {
 // console.log(h2);
 
 
+
+
+
 // // ------------------ new method
 // // 用另外一種方式來做prototype 
-// // this -> {} 當我們用new的時候會做幾件事情
+// // 當我們用new的時候會做幾件事情
+// // heroCreate.prototype 他預設是 > {}
 // //1. {}.__proto = heroCreate.prototype 把他指向他
 // //2. fn裡面做出一個類似{}的空物件行為 heroCreate {}
 // //3. this -> {} 會有生出一個this變數，透指向空物件，用以下方式就可以把屬性塞進去，並自動return
@@ -77,11 +84,14 @@ const actions = {
 
 
 
+
+
 // -----------------MDN Array.prototype.map()
 // 基本型別又分成 string、number、boolean、null、undefined 幾種，除了以上幾種之外，其他都可以歸類至物件型別 (Object)。
 // 用上面就可以解釋下面[].__proto__ === Array.prototype
 
 // const a = new Array()
+// // 現在都直接簡化 const a = [] 跟 new是一樣的
 
 // console.log(a); //印出[]
 // console.log(a.__proto__.map === Array.prototype.map
@@ -90,6 +100,7 @@ const actions = {
 
 
 
+// --------------------------
 // 只要抓到prototype就知道JS的運作也就知道如何幫現有的fn加方法及JS fn是怎麼運作的
 // Array.prototype.hello = () => {
 //   console.log('hi');
@@ -131,6 +142,12 @@ const actions = {
 
 
 // -------------------- inherit 繼承概念
+// class 配上 extends去找到上層的物件去繼承他的屬性
+// 我們會把共通的物件拉出來放在上層，行為各自放，用生物繼承的概念來想就會比清楚
+// heroCreate.__proto__ === creator  //true
+// heroOne.__proto__ === heroCreate.prototype //true
+// creator.__proto__ === Function.prototype //true
+
 class Creator {
   constructor(name , power){
     this.name = name;
