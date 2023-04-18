@@ -141,42 +141,48 @@ const actions = {
 
 
 
-// -------------------- inherit 繼承概念
-// class 配上 extends去找到上層的物件去繼承他的屬性
-// 我們會把共通的物件拉出來放在上層，行為各自放，用生物繼承的概念來想就會比清楚
-// heroCreate.__proto__ === creator  //true
-// heroOne.__proto__ === heroCreate.prototype //true
-// creator.__proto__ === Function.prototype //true
+// // -------------------- inherit 繼承概念
+// // class 配上 extends去找到上層的物件去繼承他的屬性
+// // 我們會把共通的物件拉出來放在上層，行為各自放，用生物繼承的概念來想就會比清楚
+// // heroCreate.__proto__ === creator  //true
+// // heroOne.__proto__ === heroCreate.prototype //true
+// // creator.__proto__ === Function.prototype //true
+// // class Creator{} 他看起來是物件但他是function 只是在new的時候會給他一個{}
 
-class Creator {
-  constructor(name , power){
-    this.name = name;
-    this.power = power;
-  }
-}
 
-class monsterCreate extends Creator{
-  attack(name){
-    console.log(`${name}，攻擊！！`);
-  }
+// class Creator {
+//   constructor(name , power){
+//     this.name = name;
+//     this.power = power;
+//   }
+// }
 
-  sleep(name){
-    console.log(`${name}，使出催眠！`);
-  }
+// class monsterCreate extends Creator{
+//   attack(name){
+//     console.log(`${name}，攻擊！！`);
+//   }
+//   sleep(name){
+//     console.log(`${name}，使出催眠！`);
+//   }
+// }
 
-}
+// class heroCreate extends Creator{
+//   attack (name) {
+//     console.log(`${name}，認真系列真。亂打`);
+//   }
+//   sleep (name) {
+//     console.log(`${name}，認真系列倒頭就睡`);
+//   }
+// }
 
-class heroCreate extends Creator{
-  attack (name) {
-    console.log(`${name}，認真系列真。亂打`);
-  }
-  sleep (name) {
-    console.log(`${name}，認真系列倒頭就睡`);
-  }
-}
+// const heroOne = new heroCreate('chiYu' , 100)
+// console.log(heroOne.sleep(heroOne.name));
 
-const heroOne = new heroCreate('chiYu' , 100)
-console.log(heroOne.sleep(heroOne.name));
+// const monsterOne = new monsterCreate('大蛇' , 5000) 
+// console.log(monsterOne.attack(monsterOne.name));
 
-const monsterOne = new monsterCreate('大蛇' , 5000) 
-console.log(monsterOne.attack(monsterOne.name));
+
+
+
+// ----------------ASI Auto Semicolon Insertion
+// JavaScript 雖然是隱藏看不到，但會自動加分號，但如果下一個是() 或是 [] {} ，JS會認為沒有做完全就會報錯誤
