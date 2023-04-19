@@ -1,4 +1,4 @@
-// // odject = 屬性 + 行為
+// // object = 屬性 + 行為
 // // JavaScript 物件就是const a =  { a:1 , b:2 , c:3}
 // // 用中文說就是 Key 跟 value 的組和
 
