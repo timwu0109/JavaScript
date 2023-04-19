@@ -24,12 +24,12 @@
 // ...的預設就是[] ，所以就當沒有引數的時候，也會拿到一個空陣列
 // ...必須是擺在parameter 的最後一個，因為他都拿完了後面就算有參數也拿不到東西
 
-// function  dotTraning(a , b , c , d ,...rest ) {
+// function  dotTraining(a , b , c , d ,...rest ) {
 //   console.log(a,b,c,d);
 //   console.log(rest);
 // }
 
-// dotTraning( 1 , 2 , 3 , 4 ,5 ,6,7,8,9,10)
+// dotTraining( 1 , 2 , 3 , 4 ,5 ,6,7,8,9,10)
 
 
 
