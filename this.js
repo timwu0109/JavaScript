@@ -1,5 +1,10 @@
 // this 代名詞
 // this 是動態執行誰呼叫就會發動 跟 scope沒關係
+// 每個fn 都有this 
+
+
+
+
 // --------------1 .誰呼叫誰就是this
 
 // const hero = {
@@ -66,7 +71,7 @@ function hi(name){
   this.name = name
 }
 
-const h1 =  hi('tim')
+const h1 = new hi('tim')
 console.log(h1);
 
 
@@ -74,3 +79,48 @@ console.log(h1);
 
 // --------------5. 是否有用call , apply , bind
 
+
+// const hero =  {
+//   name : 'tim',
+//   hi : function(){
+//     console.log(this.name);
+//        // 這裡驗證誰呼叫this就是誰，這邊this是hero物件本身 印出 {name: 'tim', hi: ƒ}
+//   }
+// }
+// const c  = {name : 'oli'}
+// hero.hi(c) 
+
+
+
+
+// ---------- call and apply
+
+// const hero =  {
+//   name : 'tim',
+//   hi : function(){
+//     console.log(this);
+//     //印出 c > {name: 'oli'}
+//   }
+// }
+// const c  = {name : 'oli'}
+// hero.hi.call(c)
+// hero.hi.apply(c)
+// // 這邊呼叫call 跟 apply都可以讓thi指向帶進去參數
+
+
+// ---------- call and apply is different
+// diversity 多樣性
+
+// const hero =  {
+//   name : 'tim',
+//   hi : function( a , b){
+//     console.log(this , a ,b);
+//   }
+//  //call可以帶參數進來，call >(this指向 , 參數 , 參數)
+//  //apply 也可以但是要加中括號apply >(this指向 , [參數 , 參數]),如果沒用就會噴錯誤
+// }
+// const c  = {name : 'oli'}
+// hero.hi.call(c , 1 , 2)
+// hero.hi.apply(c ,[1 ,2])
+
+//--------------
