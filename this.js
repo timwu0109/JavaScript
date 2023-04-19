@@ -123,4 +123,89 @@ console.log(h1);
 // hero.hi.call(c , 1 , 2)
 // hero.hi.apply(c ,[1 ,2])
 
-//--------------
+//--------------用遊戲角度來實做看看
+// 用this call指向，當攻擊建立在hero上面this指向自己，當用call(monster)會把this 指向monster 就會被扣血 ，用這種方式就可以達到類似遊戲補血攻擊的感覺，this好處就是是代名詞，可以寫一個fn 然後改變this 指向就好 ，不用特別在為了要幫hero補血再做一個fn
+
+const hero = {
+  hp: 100,
+  mp: 70 ,
+  attack : function(){
+    console.log(`英雄：普通攻擊 -10hp`);
+    this.hp -= 10;
+  },
+  skill : function(){
+    console.log('英雄：瘋狂亂砍 -30hp -10mp');
+    this.hp -= 30 
+    hero.mp -= 10 ;
+  }
+}
+
+
+const mage = {
+  hp : 50 ,
+  mp : 100 , 
+
+  attack : function(){
+    console.log('法師：普通攻擊 -5hp');
+    this.hp -=5
+  },
+
+  skill : function(){
+    console.log('法師：終極補血 +30hp -10mp');
+    this.hp += 30
+    mage.mp -= 10
+  },
+
+  // skillHero : function(){
+  //   console.log('法師：終極補血 +30hp -10mp');
+  //   hero.hp += 30
+  //   mage.mp -= 10
+  // },
+  // // 這邊是用寫死的方法，如果不善用this 就可能要寫很多fn 如果今天角色更多，要幫弓箭手補血，就又要再寫一個fn，如果有10種，那不就要寫10個fn
+}
+
+const monster = {
+  hp : 150 , 
+  mp : 10 ,
+
+  attack : function(){
+    console.log('怪獸：普通攻擊 -50hp');
+    this.hp -= 50
+  },
+}
+
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+hero.skill.call(monster);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+monster.attack.call(hero);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+mage.skill.call(hero);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+monster.attack.call(mage);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+hero.attack.call(monster);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+mage.skill();
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+monster.attack.call(mage);
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
+mage.skillHero(); //這邊是用寫死的方法
+console.log('hero',hero);
+console.log('mage',mage);
+console.log('monster',monster);
