@@ -71,7 +71,21 @@
 // })
 
 
-// ------------
+// ---------------- for回圈做settimeout
+// for回圈用var做settimeout的時候他會先去webAPI等待 ， 但在等待的同時for回圈就已經跑完了
+
+
+// for(var a = 0 ; a < 10 ; a++){
+//   setTimeout(()=>{
+//     console.log(a); // 印出 10 * 10次 
+//   },1000 * a)
+// }
+
+
+
+
+
+// ------------training
 
 // let sec = 10
 // let secStop = sec
@@ -107,37 +121,41 @@
 //   }
 // )
 
-let sec = 5 
-let secStop = sec
-let state = 'stop'
-// 這邊const 忘記改成let
-let setIntervalId = setInterval(()=>{
-  sec--
-  if(sec === 0){
-    clearInterval(setIntervalId)
-  }
-  console.log(sec);
-} , 1000)
 
 
-document.addEventListener('keypress' , (e)=>{
-  if(e.code === 'Space'){
-    if(state === 'running'){
-      state = 'stop'
-      secStop = sec
-      clearInterval(setIntervalId)
-    }else{
-      state = 'running'
-      sec = secStop
-      setIntervalId = setInterval(()=>{
-        sec--
-        if(sec === 0){
-          clearInterval(setIntervalId)
-        }
-        console.log(sec);
-      } , 1000)
-    }
-  }
-})
+// --------------training 1
+
+// let sec = 5 
+// let secStop = sec
+// let state = 'stop'
+// // 這邊const 忘記改成let
+// let setIntervalId = setInterval(()=>{
+//   sec--
+//   if(sec === 0){
+//     clearInterval(setIntervalId)
+//   }
+//   console.log(sec);
+// } , 1000)
+
+
+// document.addEventListener('keypress' , (e)=>{
+//   if(e.code === 'Space'){
+//     if(state === 'running'){
+//       state = 'stop'
+//       secStop = sec
+//       clearInterval(setIntervalId)
+//     }else{
+//       state = 'running'
+//       sec = secStop
+//       setIntervalId = setInterval(()=>{
+//         sec--
+//         if(sec === 0){
+//           clearInterval(setIntervalId)
+//         }
+//         console.log(sec);
+//       } , 1000)
+//     }
+//   }
+// })
 
 
