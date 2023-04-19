@@ -15,18 +15,22 @@
 // // let
 // for(let a = 0 ; a < 10 ; a++){
 //   // a 存在於這block中 ，但for loop會先結束，才會做setTimeout ，所以let a就回隨之消失
+//  // 這邊對丟去webAPI也有點誤解，他是會讓setTimeout的第一個parameter fn 去web ,第二個正常執行秒數
+// // 強調在強調closure 是JS的概念 fn的行爲
+// // 這邊for loop的概念我有點搞錯，for回圈會做三次所以會傳三次fn 到web排隊
+
 //   setTimeout(()=>{
 //     console.log(a); // 印出 1-9  
 //   },1000 * a)
 // }  
 
 
-function hi(){
-  let a = 1 
-  function hey(){
-    console.log(a);}
-  return hey
-}
+// function hi(){
+//   let a = 1 
+//   function hey(){
+//     console.log(a);}
+//   return hey
+// }
 
-const cc = hi()
-cc()
+// const cc = hi()
+// cc()
