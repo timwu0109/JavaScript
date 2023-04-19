@@ -72,6 +72,7 @@ const actions = {
 // // 每個fn都有 prototype屬性 , fn在js內也是物件的一種所以fn 也有 __proto__ ，所有fn 一開始都是{ }空物件
 // // {}.__proto === heroCreate.prototype 
 // // h1.attack -> h1 -> h1.__proto__ -> heroCreate.prototype -> attack
+
 // const h1 = new heroCreate("tim" , 100);
 
 // // heroCreate.prototype = actions 

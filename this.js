@@ -15,6 +15,9 @@
 // hero.hi() 
 // //hero 呼叫了hi() ,所以在裡面this就是hero
 
+
+
+
 // // -------------2. 沒人呼叫，this -> 全域物件
 
 // function hi(){
@@ -26,14 +29,15 @@
 
 
 // ----------------3.()=>{} 箭頭韓式沒有自己的this ，所以箭頭函式裡面的this就會指向window
+
 // 如果要看怎麼運作就是F12 找到source 設定中斷點就可以看到
 
-// function hi() {} 
-// const hey = () =>{}
+function hi() {console.log(this);} 
+const hey = () =>{ console.log(this);}
 
 
-// hi(); //this: Window
-// hey() //this: undefined
+hi(); //this: Window
+hey() //this: undefined
 
 // 另外一個比喻
 
@@ -49,8 +53,7 @@
 //       hey : ()=>{
 //         console.log(this);// 全域
 //       }
-//     }
-
+//      }
 //     ccc.hi()
 //     ccc.hey()
 //   }
@@ -61,24 +64,22 @@
 
 
 // -------------4. 是否有使用new
+
 // 如果有用new就會指向用new的那個物件
 
 
-function hi(name){
-  // this  -> {}
-  // 這裡還有一個重點，沒人呼叫this就是window，沒有new就會變成在全域物件上面幫他加了一個name的屬性
-  // this === Window //true
-  this.name = name
-}
+// function hi(name){
+//   // this  -> {}
+//   // 這裡還有一個重點，沒人呼叫this就是window，沒有new就會變成在全域物件上面幫他加了一個name的屬性
+//   // this === Window //true
+//   this.name = name
+// }
 
-const h1 = new hi('tim')
-console.log(h1);
-
-
+// const h1 = new hi('tim')
+// console.log(h1);
 
 
 // --------------5. 是否有用call , apply , bind
-
 
 // const hero =  {
 //   name : 'tim',
@@ -91,10 +92,7 @@ console.log(h1);
 // hero.hi(c) 
 
 
-
-
 // ---------- call and apply
-
 // const hero =  {
 //   name : 'tim',
 //   hi : function(){
@@ -126,86 +124,125 @@ console.log(h1);
 //--------------用遊戲角度來實做看看
 // 用this call指向，當攻擊建立在hero上面this指向自己，當用call(monster)會把this 指向monster 就會被扣血 ，用這種方式就可以達到類似遊戲補血攻擊的感覺，this好處就是是代名詞，可以寫一個fn 然後改變this 指向就好 ，不用特別在為了要幫hero補血再做一個fn
 
-const hero = {
-  hp: 100,
-  mp: 70 ,
-  attack : function(){
-    console.log(`英雄：普通攻擊 -10hp`);
-    this.hp -= 10;
-  },
-  skill : function(){
-    console.log('英雄：瘋狂亂砍 -30hp -10mp');
-    this.hp -= 30 
-    hero.mp -= 10 ;
-  }
-}
+// const hero = {
+//   hp: 100,
+//   mp: 70 ,
+//   attack : function(){
+//     console.log(`英雄：普通攻擊 -10hp`);
+//     this.hp -= 10;
+//   },
+//   skill : function(){
+//     console.log('英雄：瘋狂亂砍 -30hp -10mp');
+//     this.hp -= 30 
+//     hero.mp -= 10 ;
+//   }
+// }
 
 
-const mage = {
-  hp : 50 ,
-  mp : 100 , 
+// const mage = {
+//   hp : 50 ,
+//   mp : 100 , 
 
-  attack : function(){
-    console.log('法師：普通攻擊 -5hp');
-    this.hp -=5
-  },
+//   attack : function(){
+//     console.log('法師：普通攻擊 -5hp');
+//     this.hp -=5
+//   },
 
-  skill : function(){
-    console.log('法師：終極補血 +30hp -10mp');
-    this.hp += 30
-    mage.mp -= 10
-  },
+//   skill : function(){
+//     console.log('法師：終極補血 +30hp -10mp');
+//     this.hp += 30
+//     mage.mp -= 10
+//   },
 
-  // skillHero : function(){
-  //   console.log('法師：終極補血 +30hp -10mp');
-  //   hero.hp += 30
-  //   mage.mp -= 10
-  // },
-  // // 這邊是用寫死的方法，如果不善用this 就可能要寫很多fn 如果今天角色更多，要幫弓箭手補血，就又要再寫一個fn，如果有10種，那不就要寫10個fn
-}
+//   // skillHero : function(){
+//   //   console.log('法師：終極補血 +30hp -10mp');
+//   //   hero.hp += 30
+//   //   mage.mp -= 10
+//   // },
+//   // // 這邊是用寫死的方法，如果不善用this 就可能要寫很多fn 如果今天角色更多，要幫弓箭手補血，就又要再寫一個fn，如果有10種，那不就要寫10個fn
+// }
 
-const monster = {
-  hp : 150 , 
-  mp : 10 ,
+// const monster = {
+//   hp : 150 , 
+//   mp : 10 ,
 
-  attack : function(){
-    console.log('怪獸：普通攻擊 -50hp');
-    this.hp -= 50
-  },
-}
+//   attack : function(){
+//     console.log('怪獸：普通攻擊 -50hp');
+//     this.hp -= 50
+//   },
+// }
 
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-hero.skill.call(monster);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-monster.attack.call(hero);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-mage.skill.call(hero);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-monster.attack.call(mage);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-hero.attack.call(monster);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-mage.skill();
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-monster.attack.call(mage);
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
-mage.skillHero(); //這邊是用寫死的方法
-console.log('hero',hero);
-console.log('mage',mage);
-console.log('monster',monster);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// hero.skill.call(monster);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// monster.attack.call(hero);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// mage.skill.call(hero);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// monster.attack.call(mage);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// hero.attack.call(monster);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// mage.skill();
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// monster.attack.call(mage);
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+// mage.skillHero(); //這邊是用寫死的方法
+// console.log('hero',hero);
+// console.log('mage',mage);
+// console.log('monster',monster);
+
+
+// function heroCreate (name , power) {
+//     this.name = name;
+//     this.power = power;
+//   }
+
+//   const h2 = new heroCreate('tim' , 100)
+//   console.log(h2);
+//   heroCreate.prototype.tim = function() {
+//     console.log(456);
+//   }
+//   console.log(h2);
+
+
+
+// //  -------------- bind 差異性
+// const hero =  {
+//   name : 'tim',
+//   hi : function(a , b){
+//     console.log(this , a ,b);
+//   }
+//  //call可以帶參數進來，call >(this指向 , 參數 , 參數)
+//  //apply 也可以但是要加中括號apply >(this指向 , [參數 , 參數]),如果沒用就會噴錯誤
+// }
+// const c  = {name : 'oli' , state : 'good'}
+// hero.hi.call(c , 1 , 2)
+// hero.hi.apply(c ,[1 ,2])
+
+// const a = hero.hi.bind(c)
+// console.log(a);
+// // 在這邊bind的回傳值是新的fn，並把傳入的物件變成this
+// // fn不會馬上執行，所以我們就有時間，可以去改變帶進去的東西，跟call and apply不一樣
+// c.name = 'Elvis'
+// a(6,7)
+
+
+
+
