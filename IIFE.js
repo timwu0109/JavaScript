@@ -5,12 +5,21 @@
 //   console.log(n);
 // })(123);
 
+
+
+
+// ---------------------import export 
 import {add , min} from './app'
+// import {add as ad ,  min as mi} from './app.js'
+// export default 可以用變數去呼叫，但是純export不行，所以要用as的方式去改名
 import x from './app'
+import flatpickr from 'flatpickr';
 
 
 
-console.log(add);
-min("tim" , "GGG")
-console.log(x);
+
+
+console.log(min());
+// min("tim" , "GGG")
+// console.log(x);
 

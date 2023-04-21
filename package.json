@@ -5,12 +5,13 @@
   "repository": "https://github.com/timwu0109/JavaScript.git",
   "author": "TimWu <mr.oldfive@gmail.com>",
   "license": "MIT",
-
   "scripts": {
     "dev": "yarn parcel index.html"
-  },  
-
+  },
   "devDependencies": {
     "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13"
   }
 }
