@@ -557,16 +557,19 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"3zh5h":[function(require,module,exports) {
-var _app = require("./app");
 // IIFE = Immediately(立即) Invoked(調用) Function Expression(表達)
 // 也就是立即函式 ，立即函式的好處就任何變數都不會污染到外面來，適合拿來做套件
 // (function (n) {
 //   console.log(n);
 // })(123);
-(0, _app.add)();
-(0, _app.min)("tim", "oli");
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _app = require("./app");
+var _appDefault = parcelHelpers.interopDefault(_app);
+console.log((0, _app.add));
+(0, _app.min)("tim", "GGG");
+console.log((0, _appDefault.default));
 
-},{"./app":"igcvL"}],"igcvL":[function(require,module,exports) {
+},{"./app":"igcvL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"igcvL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "add", ()=>add);
@@ -577,6 +580,10 @@ function add() {
 function min(a, b) {
     console.log(a, b);
 }
+function plus() {
+    console.log(plus);
+}
+exports.default = plus;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
