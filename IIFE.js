@@ -16,10 +16,14 @@ import x from './app'
 import flatpickr from 'flatpickr';
 
 
-
-
-
 console.log(min());
 // min("tim" , "GGG")
 // console.log(x);
 
+
+
+
+// -----------TDD Test(測試)-Driven(驅動)-Development(開發)
+// Ruby on Rails  > rspec
+// JavaScript > jest
+// 測試要先訂好規格也就是測試 ，在開始時做 

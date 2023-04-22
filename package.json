@@ -6,9 +6,11 @@
   "author": "TimWu <mr.oldfive@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn parcel index.html"
+    "dev": "yarn parcel index.html" ,
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^29.5.0",
     "parcel": "^2.8.3"
   },
   "dependencies": {

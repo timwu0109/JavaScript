@@ -570,8 +570,11 @@ var _flatpickr = require("flatpickr");
 var _flatpickrDefault = parcelHelpers.interopDefault(_flatpickr);
 console.log((0, _app.min)()); // min("tim" , "GGG")
  // console.log(x);
+ // -----------TDD Test(測試)-Driven(驅動)-Development(開發)
+ // Ruby on Rails  > rspec
+ // JavaScript > jest
 
-},{"./app":"igcvL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","flatpickr":"llQu5"}],"igcvL":[function(require,module,exports) {
+},{"./app":"igcvL","flatpickr":"llQu5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"igcvL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "add", ()=>add);
