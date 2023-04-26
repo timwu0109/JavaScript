@@ -137,12 +137,15 @@
 
 
 // 題目六
+// 引數1陣列裡面不能出現引數2陣列的值，回傳不含引數2值的新[]
 
+
+// 用filter的特性會把true的值抓出來組成新的array ，用b去includes 去找他裡面的直，includes找到相同的值會回傳true
+// 但我們要找到不同的所以要用! 去反轉true 跟 false ，這樣原本相同的true就不會被選出來
+// 不同的值 false就會變成就會變成true ，filter在把true值回傳成新的陣列
 function arrayDiff(a, b) {
-  
- 
+  return a.filter((dif)=> !(b.includes(dif))) 
 }
-
 
 console.log(arrayDiff([1,2], [1])) // [2] "a was [1,2], b was [1]";
 console.log(arrayDiff([1,2,2], [1])) // [2,2] "a was [1,2,2], b was [1]";
