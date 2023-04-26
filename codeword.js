@@ -95,21 +95,58 @@
 //  題目四
 // 入會高爾夫球俱樂部需要填寫年齡跟讓竿數，年紀超過55歲且讓竿數超過7杆的都是Senior , 其都是open ,請分出每個會員的等級
 
-function openOrSenior(data) {
-  return data.map(([age , handicap])=> age >= 55 && handicap > 7 ? 'Senior' : 'Open' )
+// function openOrSenior(data) {
+//   return data.map(([age , handicap])=> age >= 55 && handicap > 7 ? 'Senior' : 'Open' )
   
-}
+// }
 
-// 用map會去對每個物件做判斷，在會傳符合條件的到Senior ，不符合則回傳'open' , map回傳值會是回傳所有輸入值更改後同樣length的陣列
-// function openOrSenior(data){
-//   return data.map(([age , cap])=> age >= 55 && cap > 7? "Senior" : "open"
-//   )
+// // 用map會去對每個物件做判斷，在會傳符合條件的到Senior ，不符合則回傳'open' , map回傳值會是回傳所有輸入值更改後同樣length的陣列
+// // function openOrSenior(data){
+// //   return data.map(([age , cap])=> age >= 55 && cap > 7? "Senior" : "open"
+// //   )
+// // }
+
+
+// console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])) 
+// //['Open', 'Senior', 'Open', 'Senior'])
+// console.log(openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]]))
+// //['Open', 'Open', 'Open', 'Open'])
+// console.log(openOrSenior([[59, 12],[55,-1],[12, -2],[12, 12]]))
+// //['Senior', 'Open', 'Open', 'Open']
+
+
+// 題目五
+// 把兩個引數的字串裡面相同字元刪除，在重新組成字串
+
+// // 這邊可以用concat把兩個str 合再一起變成一個str ,用Set裡面的的每個值都會是唯一直，
+// // Set會把字串轉換成類似陣列split fn的樣子，並把多餘的剔除，然後Set只是看起來是陣列但實質上他屬性是object
+// // 所以用...的方式收集到陣列裡面，在用Array的方法 sort 去排序，在用join把陣列裡面的每個值合併並回傳" 字串 "
+
+ 
+// function longest(s1, s2) {
+//   console.log();
+//   return [...new Set(s1.concat(s2))].sort().join('');
+  
 // }
 
 
-console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])) 
-//['Open', 'Senior', 'Open', 'Senior'])
-console.log(openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]]))
-//['Open', 'Open', 'Open', 'Open'])
-console.log(openOrSenior([[59, 12],[55,-1],[12, -2],[12, 12]]))
-//['Senior', 'Open', 'Open', 'Open']
+// console.log(longest("aretheyhere", "yestheyarehere")) //"aehrsty"
+// console.log(longest("loopingisfunbutdangerous", "lessdangerousthancoding")) //"abcdefghilnoprstu"
+// console.log(longest("inmanylanguages", "theresapairoffunctions")) //"acefghilmnoprstuy"
+
+
+
+// 題目六
+
+function arrayDiff(a, b) {
+  
+ 
+}
+
+
+console.log(arrayDiff([1,2], [1])) // [2] "a was [1,2], b was [1]";
+console.log(arrayDiff([1,2,2], [1])) // [2,2] "a was [1,2,2], b was [1]";
+console.log(arrayDiff([1,2,2], [2])) // [1] "a was [1,2,2], b was [2]";
+console.log(arrayDiff([1,2,2], [])) // [1,2,2] "a was [1,2,2], b was []";
+console.log(arrayDiff([], [1,2])) // [] "a was [], b was [1,2]";
+console.log(arrayDiff([1,2,3], [1,2])) // [3], "a was [1,2,3], b was [1,2])
